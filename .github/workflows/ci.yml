@@ -10,4 +10,4 @@ jobs:
         uses: theory/pgxn-action@master
         with:
           postgresql password: test
-      - run: env PGPASSWORD=test psql -U postgres -c 'SELECT version()'
+      - run: env PGPASSWORD=test psql -U postgres -h localhost -c 'SELECT version()'
