@@ -10,6 +10,4 @@ jobs:
         uses: theory/pgxn-action@master
         with:
           postgresql password: test
-      - name: Test connection to PostgreSQL
-        uses: m4nu56/postgresql-action
-        run: env PGPASSWORD=test psql -U postgres -c 'SELECT version()'
+      - run: env PGPASSWORD=test psql -U postgres -c 'SELECT version()'
