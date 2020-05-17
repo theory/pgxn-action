@@ -3,10 +3,10 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Test PGXN Action
     steps:
     - name: PGXN Action
-      uses: theory/pgxn-action@v1
+      uses: theory/pgxn-action@master
       with:
         postgresql password: test
     - name: Connect to PostgreSQL
