@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Test PGXN Action
     steps:
-    - name: PGXN Action
-      uses: theory/pgxn-action@master
-      with:
-        postgresql password: test
-    - name: Connect to PostgreSQL
-      run: psql -U postgres -c 'SELECT version()'
+      - uses: actions/checkout@v2
+      - name: Setup PGXN Action
+        uses: theory/pgxn-action@master
+        with:
+          postgresql password: test
+      - name: Test connection to PostgreSQL
+        uses: m4nu56/postgresql-action
+        run: env PGPASSWORD=test psql -U postgres -c 'SELECT version()'
